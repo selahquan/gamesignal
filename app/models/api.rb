@@ -14,6 +14,6 @@ class Api < ActiveResource::Base
             :key => '54b6a98d972c42f2ae857033bc896c8b',
 
         )
-         JSON.parse(games_data)["results"]
+        JSON.parse(games_data)["results"]
     end
 end

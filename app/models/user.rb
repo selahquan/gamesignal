@@ -4,4 +4,7 @@ class User < ApplicationRecord
     belongs_to :group
 
     has_secure_password
+
+    validates_uniqueness_of :email, :username
+    validates_presence_of :username, :email
 end

@@ -23,14 +23,14 @@ class GroupsController < ApplicationController
 	end
 
 	def update
-	  group = Group.find(params[:id])
-	  group.update(group_params)
-	  redirect_to group_path(group)
+		group = Group.find(params[:id])
+		group.update(group_params)
+		redirect_to group_path(group)
 	end
 
-  private
+	private
 
-  def group_params
-    params.require(:group).permit(:title, :content, :game)
-  end
+	def group_params
+		params.require(:group).permit(:title, :content, :game)
+	end
 end
