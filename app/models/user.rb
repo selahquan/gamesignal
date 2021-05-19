@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-    has_many :games
+    has_many :games, through: :reviews
     has_many :reviews
     belongs_to :group
 

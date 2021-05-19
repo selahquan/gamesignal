@@ -1,15 +1,20 @@
 class GroupsController < ApplicationController
-    def index
+    
+	before_action :redirect_if_not_logged_in
+	before_action :find_and_set_review, only: [:show, :edit, :update, :destroy]
+	before_action :can_change?, only: [:edit, :update, :destroy]
+
+	def index
         @groups = Group.all
     end
 
     def show
-        @group = Group.find(params[:id])
+        @group = Group.find_by_id(params[:id])
     end
 
     def new
+		
 		@group = Group.new
-		#@categories = Category.all
 	end
 
     def create
@@ -19,7 +24,6 @@ class GroupsController < ApplicationController
 
 	def edit
 		@group = Group.find(params[:id])
-		#@categories = Category.all
 	end
 
 	def update
@@ -32,5 +36,9 @@ class GroupsController < ApplicationController
 
 	def group_params
 		params.require(:group).permit(:title, :content, :game)
+	end
+
+	def find_and_set_review
+		@group = Group.find_by(id: params[:id])
 	end
 end

@@ -21,5 +21,5 @@ Api.get_data.each do |hash|
         clip
     end
 
-     Game.create(slug: hash["slug"], name: hash["name"], background_image: hash["background_image"], rating: hash["rating"], platform: platforms_array, genre: genres_array, clip: clips_array)
+    Game.create(slug: hash["slug"], name: hash["name"], background_image: hash["background_image"], rating: hash["rating"], platform: platforms_array, genre: genres_array, clip: clips_array)
 end

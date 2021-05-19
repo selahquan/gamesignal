@@ -17,9 +17,9 @@ class UsersController < ApplicationController
 
     def show
         @user = current_user
-        @games = current_user.borrowed_books.currently_checked_out_books.select {|book| current_borrower(book) == current_user }
+        @games = current_user.games
         @reviews = current_user.reviews
-        user_from_url_submitted_id = User.find_by(id: params[:id])
+        user_from_url_submitted_id = User.find_by_id(id: params[:id])
         redirect_if_not_authorized_to_view(user_from_url_submitted_id)
     end
     
