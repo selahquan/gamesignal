@@ -1,13 +1,14 @@
-<h1>Games</h1>
+<h1><%=@game.name%></h1>
 <br>
-<h4><%@games.each do |game|%>
-    <a href="/games/<%=game.id%>"><%=game.name%></a>
+<h4>
+    <%=@game[:rating]%>
     <br>
-    <%=game[:rating]%>
+    <%=@game[:genre]%>
     <br>
-    <%=game[:genre]%>
-    <br>
+    <%=@game[:platform]%>
     <video width="320" height="240" controls>
-        <source src="<%=game.clip%>" type="video/mp4">
-    <%end%>
+    <source src="<%@game.clip.clip%>" type="video/mp4">
 </h4>
+<% if logged_in? %>
+    <%@games.each do |game|%>
+<% end %>

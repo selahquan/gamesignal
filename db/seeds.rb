@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'faker'
+require 'rest-client'
 
 Api.get_data.each do |hash|
     platforms_array = hash["platforms"].map do |platform|

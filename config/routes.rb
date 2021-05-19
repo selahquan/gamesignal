@@ -8,5 +8,5 @@ Rails.application.routes.draw do
 
   resources :reviews
   resources :groups
-  resources :games, only [:show, :index]
+  resources :games, only: [:show, :index]
 end
