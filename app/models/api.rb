@@ -1,17 +1,17 @@
 class Api < ActiveResource::Base
-    self.site = "https://api.rawg.io/api/games?54b6a98d972c42f2ae857033bc896c8b"
+    self.site = "https://api.rawg.io/api/games?key="
 
-    self.headers['Authorization'] = 'Token token="54b6a98d972c42f2ae857033bc896c8b"'
+    self.headers['Authorization'] = 'Token token="a2bbb0a8f596467091f18dd2b1961529"'
 
     #self.auth_type = :bearer
-    #self.bearer_token = '54b6a98d972c42f2ae857033bc896c8b'
+    #self.bearer_token = 'a2bbb0a8f596467091f18dd2b1961529'
 
     def self.get_data
 
         games_data = RestClient::Request.execute(
-            :url => 'https://api.rawg.io/api/games?54b6a98d972c42f2ae857033bc896c8b',
+            :url => 'https://api.rawg.io/api/games?key=',
             :method => :get,
-            :key => '54b6a98d972c42f2ae857033bc896c8b',
+            :key => 'a2bbb0a8f596467091f18dd2b1961529',
 
         )
         JSON.parse(games_data)["results"]
